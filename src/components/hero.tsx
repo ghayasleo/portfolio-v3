@@ -2,6 +2,7 @@
 
 import classNames from "classnames";
 import React, { useEffect, useState } from "react";
+import ScrollIndicator from "./scroll-indicator";
 
 const boxStyle = {
   mainBox:
@@ -40,18 +41,22 @@ function Hero() {
 
   return (
     <section
-      className="font-jbmono py-15 px-15 bg-[url(/img/black-felt.png)] min-h-[100vh] relative"
+      className="font-jbmono py-15 px-15 bg-[url(/img/black-felt.png)] min-h-[100vh] relative flex flex-col"
       id="home"
       data-title="Home"
     >
       <div className={classNames(boxStyle.mainBox, boxStyle.line)}></div>
 
-      <span className="fixed top-0 bottom-0 left-15 m-auto h-fit uppercase text-sm">
-        <span className="block -rotate-90 tracking-widest">{activeTitle}</span>
-      </span>
+      <div className="fixed top-0 bottom-0 left-15 m-auto h-fit uppercase text-sm w-20">
+        <span className="block -rotate-90 tracking-widest text-white/50">{activeTitle}</span>
+      </div>
 
-      <header className="flex items-start max-w-360 mx-auto">
-        <div className="pl-30">
+      <div className="fixed bottom-15 left-15 w-20">
+        <ScrollIndicator />
+      </div>
+
+      <header className="flex items-start max-w-360 mx-auto w-full">
+        <div>
           <span className="block uppercase mb-10">Ghayas Ud Din</span>
 
           <span className="block text-xs uppercase text-white/50 mb-3">
@@ -85,6 +90,19 @@ function Hero() {
           </a>
         </nav>
       </header>
+
+      <div className="max-w-360 mx-auto py-50 w-full">
+        <h1 className="text-[120px] uppercase tracking-widest font-black leading-[1.2] text-[#b3b3b3] font-[helvetica]">
+          <span className="block">FullStack</span>
+          <span className="block text-transparent" style={{ WebkitTextStroke: "1px #b3b3b3" }}>Developer</span>
+        </h1>
+      </div>
+
+      <div className="mt-auto max-w-360 mx-auto w-full">
+        <span className="block text-xs uppercase text-white/50 mb-3">
+            Designer & Developer
+          </span>
+      </div>
     </section>
   );
 }
